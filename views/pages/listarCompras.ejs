@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <% include ../partials/head %>
+    <script type="text/javascript">
+      function realizarCompra() {
+        window.location.href = './novaCompra';
+      }
+      function excluir(id) {
+
+        $(document).ready(function() {
+
+            $.ajax({
+              method: "DELETE",
+              url: "/deleteProduto/"+id,
+            }).done(function(msg) {
+              window.location.href = "./listarProdutos";
+            })
+
+          }
+        );
+      }
+        function listar(id) {
+          window.location.href = './listarDetalhesCompra/'+id;
+        }
+
+    </script>
+
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+          <div class="jumbotron nomes">
+
+            <table class="table table-striped">
+              <h2>Lista de Compras Realizadas</h2>
+              <%
+
+              if(data.length >= 1){%>
+                <tr>
+                  <th>Cod. Compra</th><th>Fornecedor</th><th>Data</th><th>Valor Compra</th><th>Ação</th>
+                </tr>
+                <%
+                //console.log("ID COMPRA 1 =>"+data[0].idCompra);
+                var maxId = 0;
+                var arrayIds = [];
+                for (var k=0; k < data.length; k++) {
+                  if(data[k].idCompra > maxId){
+                    arrayIds[k] = data[k].idCompra;
+                    maxId = data[k].idCompra;
+                  }
+                }
+                //console.log("Tamanho Compra Max"+ maxId);
+                  %>
+                  <tr>
+
+                  </tr>
+                  <%
+                  for (var i = 0; i < arrayIds.length; i++) {
+                    if(data[i].idCompra == arrayIds[i]){
+                      var valorCompra = 0.00;
+                      for(var j=0; j < data.length; j++){
+                        if(data[j].idCompra == arrayIds[i]){
+                          valorCompra += data[j].qtdCompra * data[j].valorUnitario;
+                        }
+                      }%>
+                <tr>
+                  <td><%=arrayIds[i] %></td>
+                  <td><%= data[i].fornecedorCompra%>  </td>
+                  <td><%= data[i].dataCompra.toLocaleString()%></td>
+                  <td>R$ <%= valorCompra %></td>
+                  <td><a class="btn btn-info" onclick ="listar(<%= data[i].idCompra %>)">Detalhes</a></td>
+
+
+                </tr>
+              <%
+                    }
+                  }
+
+              }else{
+          %>
+          <h3>Nenhuma compra realizada!</h3>
+            <%}%>
+            </table>
+          </div>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>

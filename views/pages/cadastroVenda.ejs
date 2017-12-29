@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var max_fields      = 20; //maximum input boxes allowed
+        var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+        var add_button      = $(".add_field_button"); //Add button ID
+
+        var x = 0; //initlal text box count
+        $(add_button).click(function(e){ //on add input button click
+            e.preventDefault();
+            if(x < max_fields){ //max input box allowed
+                console.log("Entrou aqui!");
+                x++; //text box increment
+                $(wrapper).append('<div><p>Produto['+x+']</p>ID Produto<input type="text" name="idProduto['+x+']"/>Quantidade<input type="text" name="qtdProduto['+x+']"/>Valor Unitário<input type="text" name="valorUnit['+x+']"/><a href="#" class="remove_field btn btn-danger"> Remove</a></div>'); //add input box
+            }
+        });
+
+        $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+            e.preventDefault(); $(this).parent('div').remove(); x--;
+        })
+      });
+    </script>
+
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+
+          <%if(data.length >= 1){
+            for(var i = 0; i < data.length ; i++){
+            %>
+              <p>ID Produto => <%=data[i].idProduto%> // Descrição Produto => <%=data[i].descProduto%> // Quantidade em Estoque: <%=data[i].qtdProduto%></p>
+        <%
+        }
+      }%>
+            <h1>Realizar Venda</h1>
+            <p>Insira os dados do produto.</p>
+            <form class="form" action="/novaVenda" method="post">
+              <div class="input_fields_wrap">
+                  Vendedor <input type="text" name="vendedorVenda" value="">
+                  <br>
+                  <button class="add_field_button btn btn-dark">Adicionar Produtos</button>
+
+              </div>
+              <button type="submit" class="btn btn-success" name="button">Cadastrar</button>
+
+            </form>
+
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>

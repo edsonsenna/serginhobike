@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <script type="text/javascript">
+      function novoVeiculo() {
+        window.location.href = './novoVeiculo';
+      }
+      function excluir(id) {
+        $(document).ready(function() {
+            $.ajax({
+              method: "DELETE",
+              url: "/veiculos/"+id,
+            })
+              .done(function( msg ) {
+                window.location.href = './listarVeiculos';
+              });
+          }
+        );
+      }
+        function editar(id) {
+          window.location.href = './veiculos/'+id;
+        }
+
+
+    </script>
+
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+          <table>
+            <% if(data.length >= 1){%>
+              <h1>Lista de Veículos Cadastrados</h1>
+              <button type="button" class="btn btn-success" name="button" onclick="novoVeiculo();">Novo Veiculo</button>
+              <tr>
+                <th>id</th><th>Modelo</th><th>Placa</th><th>Disponibilidade</th>
+              </tr>
+              <%
+            for (var i = 0; i < data.length; i++) { %>
+              <tr>
+                <td><%= data[i].idVeiculo %>  </td>
+                <td><%= data[i].modeloVeiculo %></td>
+                <td><%= data[i].placaVeiculo %></td>
+                <%if(data[i].dispVeiculo == 1){
+                  %><td>Disponivel.</td>
+                  <%}else{%>
+                    <td>Em manutenção.</td>
+                <%}%>
+                <td><button type="button" class="btn btn-success" name="button" onclick="editar(<%=data[i].idVeiculo%>);">Editar</button></td>
+                <td><button type="button" class="btn btn-danger" name="button" onclick="excluir(<%=data[i].idVeiculo%>);">Excluir</button></td>
+              </tr>
+            <%
+            }
+          }
+        %>
+
+          </table>
+        </div>
+
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>

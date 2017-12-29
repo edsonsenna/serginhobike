@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <% include ../partials/head %>
+    <script type="text/javascript">
+      function realizarCompra() {
+        window.location.href = './novaCompra';
+      }
+      function excluir(id) {
+
+        $(document).ready(function() {
+
+            $.ajax({
+              method: "DELETE",
+              url: "/deleteProduto/"+id,
+            }).done(function(msg) {
+              window.location.href = "./listarProdutos";
+            })
+
+          }
+        );
+      }
+      function realizarVenda() {
+        window.location.href = './novaVenda';
+      }
+
+
+    </script>
+
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+          <div class="jumbotron nomes">
+
+            <table class="table table-striped">
+              <h2>Lista de Produtos em Falta (Quantidade menor ou igual a 5.)</h2>
+              <button type="button" class="btn btn-success" name="button" onclick="realizarCompra();">Realizar Compra</button><br><br>
+              <% if(data.length >= 1){%>
+                <tr>
+                  <th>#</th><th>Código Produto</th><th>Descrição</th><th>Quantidade em Estoque</th><th>Valor Unitário</th>
+                </tr>
+                <%
+              for (var i = 0; i < data.length; i++) {
+                if(data[i].qtdProduto <= 5){
+                 %>
+                 <tr>
+                   <td><%= data[i].idEstoque %>  </td>
+                   <td><%= data[i].idProduto %>  </td>
+                   <td><%= data[i].descProduto %>  </td>
+                   <td><%= data[i].qtdProduto %></td>
+                   <td>R$ <%= data[i].valorUnitCompra %></td>
+
+                 </tr>
+              <%
+                  }
+                }
+              }
+              else{
+              %>
+              <h3>Nenhum produto cadastrado!</h3>
+                <%}%>
+          </table>
+            <table class="table table-striped">
+              <h2>Lista de Produtos Disponiveis</h2>
+              <button type="button" class="btn btn-success" name="button" onclick="realizarVenda();">Realizar Venda</button><br><br>
+              <% if(data.length >= 1){%>
+                <tr>
+                  <th>#</th><th>Código Produto</th><th>Descrição</th><th>Quantidade em Estoque</th><th>Valor Unitário</th>
+                </tr>
+                <%
+              for (var i = 0; i < data.length; i++) { %>
+                <tr>
+                  <td><%= data[i].idEstoque %>  </td>
+                  <td><%= data[i].idProduto %>  </td>
+                  <td><%= data[i].descProduto %>  </td>
+                  <td><%= data[i].qtdProduto %></td>
+                  <td>R$ <%= data[i].valorUnitCompra %></td>
+
+                </tr>
+              <%
+              }
+            }
+            else{
+          %>
+          <h3>Nenhum produto cadastrado!</h3>
+            <%}%>
+            </table>
+          </div>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>

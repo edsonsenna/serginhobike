@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Serginho BikeShop</title>
+    <% include ../partials/head %>
+    <script type="text/javascript">
+    /* Toggle Navigation Close On Click */
+
+      $('.navbar-collapse').click(function() {
+      $('.navbar-collapse').collapse('hide');
+      });
+
+      /* Toggle Navigation Close On Click End */
+
+      /* Top Navigation Shrink On Scroll */
+
+      function collapseNavbar() {
+      if ($('.navbar').offset().top > 250) {
+        $('.navbar-fixed-top').addClass('top-collapse');
+      } else {
+        $('.navbar-fixed-top').removeClass('top-collapse');
+      }
+      }
+
+      $(window).scroll(collapseNavbar);
+      $(document).ready(collapseNavbar);
+
+      /* Top Navigation Shrink On Scroll End */
+
+      /* Progress Animation On Scroll */
+
+      function updateProgress(num1, num2){
+        var percent = Math.ceil( num1 / num2 * 100 ) + '%';
+        document.getElementById('progress').style.width = percent;
+      }
+
+      window.addEventListener('scroll', function(){
+        var top = window.scrollY;
+        var height = document.body.getBoundingClientRect().height - window.innerHeight;
+        updateProgress(top, height);
+      });
+
+      /* Progress Animation On Scroll End */
+
+      /* Smooth Scrolling on Click */
+
+      $('#nav .navbar-nav li>a, .navbar-header>a, .fa-caret-up').click(function(){
+      var link = $(this).attr('href');
+        var position = $(link).offset().top;
+        $('body,html').animate({
+          scrollTop: position
+        }, 1000);
+      });
+
+      /* Smooth Scrolling on Click End */
+    </script>
+    <style media="screen">
+    /* Top Navigation Shrink On Scroll */
+
+      .navbar-custom {
+      margin-top: 10px;
+      padding: 20px 0;
+      border-bottom: none;
+      background: none;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      color: #0258A4 !important;
+      }
+
+      .navbar-custom.top-collapse {
+      margin-top: 10px;
+      padding: 0;
+      background-color: #0258A4;
+      }
+
+      /* Top Navigation Shrink On Scroll End */
+
+      /* Top Navigation Colors */
+
+      .navbar-custom.top-collapse .navbar-nav>.active>a:focus,
+      .navbar-custom.top-collapse .navbar-nav>.active>a:hover,
+      .navbar-custom.top-collapse a:hover {
+      color: #FFFFFF !important;
+      background-color: none;
+      }
+
+      .navbar-custom.top-collapse .navbar-nav>.active>a {
+      color: #FFFFFF !important;
+      background-color: #014785;
+      }
+
+      .hvr-bounce-to-right:before {
+      background: #014785;
+      }
+
+      .navbar-custom a {
+      color: #0258A4 !important;
+      }
+
+      .navbar-custom a:hover {
+      color: #014785 !important;
+      }
+
+      .navbar-custom.top-collapse a {
+      color: #FFFFFF !important;
+      }
+
+      /* Top Navigation Colors End */
+
+
+      /* Toggle Button Colors */
+
+      .navbar-custom .navbar-toggle .icon-bar {
+      background-color: #0258A4;
+      }
+
+      .navbar-custom.top-collapse .navbar-toggle .icon-bar {
+      background-color: #FFFFFF;
+      }
+
+      .navbar-custom .navbar-toggle {
+        border: 2px solid #0258A4;
+      }
+
+      .navbar-custom.top-collapse .navbar-toggle {
+        border: 2px solid #FFFFFF;
+      }
+
+      .navbar-custom .navbar-toggle:hover,
+      .navbar-custom .navbar-toggle:focus {
+        background: none;
+      }
+
+      /* Toggle Button Colors End */
+
+      /* Progress Animation On Scroll */
+
+      .progressContainer{
+        position: fixed;
+      top: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+      background-color: #FFFFFF;
+      }
+
+      .progress{
+        height: 10px;
+      width: 0%;
+        background: #0258A4;
+      border-radius: 0;
+      }
+
+      /* Progress Animation On Scroll End */
+
+      /* Toggle Navigation Border Remove */
+
+      .navbar-collapse {
+      border: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      -o-box-shadow: none;
+      box-shadow: none;
+      }
+
+      /* Toggle Navigation Border Remove End */
+
+      /* Sections */
+
+      section {
+      height: 100vh;
+      }
+
+      .section1,
+      .section2,
+      .section3,
+      .section4,
+      .section5,
+      .section6 {
+      background-position: center center;
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      }
+
+      .section1 {
+      background-color: #ECECEC;
+      }
+
+      .section2,
+      .section4,
+      .section6 {
+      background-color: #E1E1E1;
+      }
+
+      .section3,
+      .section5 {
+      background-color: #D1D1D1;
+      }
+
+      /* Sections End */
+
+      /* Google Chrome Scrollbar */
+
+      ::-webkit-scrollbar {
+        width: 18px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background-color: #FFFFFF;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: #0258A4;
+      }
+
+      /* Google Chrome Scrollbar End */
+
+
+      /* Top Navigation Margin & Padding Fix */
+
+      ul.nav.navbar-nav.navbar-right {
+      margin: 0px -15px
+      }
+
+      .container-fluid {
+      padding-right: 15px;
+      }
+
+      /* Top Navigation Margin & Padding Fix End */
+
+    </style>
+  </head>
+  <body id="page-top" data-spy="scroll" data-target="nav">
+
+  		<!-- Top Navigation -->
+
+  		<nav class="navbar navbar-default navbar-custom navbar-fixed-top" id="nav">
+  			<div class="container-fluid">
+
+  				<!-- Progress Animation On Scroll -->
+
+  				<div class="progressContainer">
+    					<div id="progress" class="progress"></div>
+  				</div>
+
+  				<!-- Progress Animation On Scroll End -->
+
+  				<div class="navbar-header">
+
+  					<!-- Toggle button -->
+
+  					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navigation" aria-expanded="false">
+  						<span class="sr-only">Toggle Navigation</span>
+  						<span class="icon-bar"></span>
+  						<span class="icon-bar"></span>
+  						<span class="icon-bar"></span>
+  					</button>
+
+  					<!-- Toggle button -->
+
+  					<!-- Brand -->
+
+  					<a class="navbar-brand" href="#section1">
+  						Serginho BikeShop
+  					</a>
+
+  					<!-- Brand End -->
+
+  				</div>
+  				<div class="collapse navbar-collapse" id="top-navigation">
+
+  					<!-- Top Navigation Links -->
+
+  					<ul class="nav navbar-nav navbar-right">
+  						<li><a href="#section2">Home</a></li>
+  						<li><a href="#section3">Sobre</a></li>
+  						<li><a href="#section4">Serviços</a></li>
+  						<li><a href="#section5">Contato</a></li>
+  						<li><a href="#section6">Localizacão</a></li>
+  					</ul>
+
+  					<!-- Top Navigation Links End -->
+
+  				</div>
+  			</div>
+  		</nav>
+
+  		<!-- Top Navigation End -->
+
+  		<!-- Sections -->
+
+  		<!-- Section 1 -->
+
+  		<section class="section1" id="section1">
+
+  		</section>
+
+  		<!-- Section 1 End -->
+
+  		<!-- Section 2 -->
+
+  		<section class="section2" id="section2">
+
+  		</section>
+
+  		<!-- Section 2 End -->
+
+  		<!-- Section 3 -->
+
+  		<section class="section3" id="section3">
+
+  		</section>
+
+  		<!-- Section 3 End -->
+
+  		<!-- Section 4 -->
+
+  		<section class="section4" id="section4">
+
+  		</section>
+
+  		<!-- Section 4 End -->
+
+  		<!-- Section 5 -->
+
+  		<section class="section5" id="section5">
+
+  		</section>
+
+  		<!-- Section 5 End -->
+
+  		<!-- Section 6 -->
+
+  		<section class="section6" id="section6">
+
+  		</section>
+
+  		<!-- Section 6 End -->
+
+  		<!-- Sections End -->
+      <footer>
+          <% include ../partials/footer %>
+      </footer>
+
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <script type="text/javascript">
+
+    </script>
+
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>This is great</h1>
+            <p>Bem-vindo à página de cadastro de Servidor</p>
+            <form class="form" action="/novoVeiculo" method="post">
+              <div class="form-group">
+                Modelo Veiculo:<input type="text" name="modelo" placeholder="Digite o modelo do veiculo"><br>
+                Tipo Veiculo: (Van, Carro, Etc)<input type="text" name="tipo" placeholder="Digite o modelo do veiculo"><br>
+                Placa Veiculo:<input type="text" name="placa" placeholder="Digite a placa do veiculo"><br>
+                Disposição Veiculo: (0,1)<input type="text" name="disp" placeholder="Digite a disposição do veiculo"><br>
+                <button type="submit" class="btn btn-success" name="button">Cadastrar</button>
+              </div>
+
+            </form>
+
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>

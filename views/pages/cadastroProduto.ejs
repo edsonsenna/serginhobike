@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <script type="text/javascript">
+
+    </script>
+
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>Cadastro Produto</h1>
+            <p>Insira os dados do produto.</p>
+            <form class="form" action="/novoproduto" method="post">
+              <div class="form-group">
+                Descricao:<input type="text" name="descricao" placeholder="Digite a descricao do produto."><br><br>
+                Marca:<input type="text" name="marca" placeholder="Digite a marca do produto."><br><br>
+                Tipo:<input type="text" name="tipo" placeholder="Digite o tipo do produto."><br><br>
+                Status:<input type="text" name="status" placeholder="Digite o status do produto."><br><br>
+                Estoque Minimo:<input type="text" name="estoquemin" placeholder="Digite a menor quantidade."><br><br>
+                Estoque Máximo:<input type="text" name="estoquemax" placeholder="Digite a maior quantidade."><br><br>
+                <button type="submit" class="btn btn-success" name="button">Cadastrar</button>
+              </div>
+
+            </form>
+
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>

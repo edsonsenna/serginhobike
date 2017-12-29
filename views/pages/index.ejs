@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <script type="text/javascript">
+
+      function listaProdutos() {
+        window.location.href = './listarProdutos';
+      }
+      function listaCompras() {
+        window.location.href = './listarCompras';
+      }
+      function listaVendas() {
+        window.location.href = './listarVendas';
+      }
+      function listaEstoque() {
+        window.location.href = './listarEstoque';
+      }
+      function abrirPagina() {
+        window.location.href = './paginaSite';
+      }
+      function excluir(id) {
+
+        $(document).ready(function() {
+
+            $.ajax({
+              method: "DELETE",
+              url: "/servidores/"+id,
+            })
+              .done(function( msg ) {
+                window.location.href = './listarServidor';
+              });
+          }
+        );
+      }
+        function editar(id) {
+          window.location.href = './servidores/'+id;
+        }
+
+
+    </script>
+
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>Sistema Serginho Bikeshop 0.6</h1>
+            <p>Bem-vindo ao sistema de gerenciamento de estoque.</p>
+
+            <button type="button" class="btn btn-info" name="button" onclick="listaProdutos();">Produtos Cadastrados</button>
+            <button type="button" class="btn btn-info" name="button" onclick="listaCompras();">Compras</button>
+            <button type="button" class="btn btn-info" name="button" onclick="listaVendas();">Vendas</button>
+            <button type="button" class="btn btn-info" name="button" onclick="listaEstoque();">Estoque</button>
+            <button type="button" class="btn btn-info" name="button" onclick="abrirPagina();">Site Serginho Bike</button>
+        </div>
+
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>

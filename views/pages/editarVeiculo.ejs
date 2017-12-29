@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#formEdit').submit(function () {
+          $.ajax({
+            url: "/veiculos/"+<%=data[0].idVeiculo%>,
+            type: "PUT",
+            data: $('#formEdit').serialize()
+          }).done(function () {
+            window.location.href = '../listarVeiculos';
+          })
+
+        });
+
+        }
+      )
+    </script>
+
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>This is great</h1>
+            <p>Bem-vindo à página de cadastro de Servidor</p>
+            <form class="form" id="formEdit">
+              <div class="form-group">
+                Id Veiculo: <%= data[0].ID %><br>
+                Modelo Veiculo:<input type="text" name="modelo" value="<%=data[0].modeloVeiculo%>" ><br>
+                Tipo Veiculos:<input type="text" name="tipo" value="<%=data[0].tipoVeiculo%>"><br>
+                Placa Veiculos:<input type="text" name="placa" value="<%=data[0].placaVeiculo%>" ><br>
+                Disp Veiculos:<input type="text" name="disp" value="<%=data[0].dispVeiculo%>"><br>
+                <button type="submit" class="btn btn-success" name="button">Atualizar</button>
+              </div>
+
+            </form>
+
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>

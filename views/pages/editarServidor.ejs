@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#formEdit').submit(function () {
+          $.ajax({
+            url: "/servidores/"+<%=data[0].ID%>,
+            type: "PUT",
+            data: $('#formEdit').serialize()
+          }).done(function () {
+            window.location.href = '../listarServidor';
+          })
+
+        });
+
+        }
+      )
+    </script>
+
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>This is great</h1>
+            <p>Bem-vindo à página de cadastro de Servidor</p>
+            <form class="form" id="formEdit">
+              <div class="form-group">
+                Id Servidor: <%= data[0].ID %><br>
+                Nome Servidor:<input type="text" name="nome" value="<%=data[0].Nome%>" placeholder="Digite o nome do servidor"><br>
+                Cpf Servidor:<input type="text" name="cpf" value="<%=data[0].CPF%>" placeholder="Digite o cpf do servidor"><br>
+                <button type="submit" class="btn btn-success" name="button">Atualizar</button>
+              </div>
+
+            </form>
+
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>

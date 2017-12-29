@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <% include ../partials/head %>
+    <script type="text/javascript">
+      function novoProduto() {
+        window.location.href = './novoProduto';
+      }
+      function excluir(id) {
+
+        $(document).ready(function() {
+
+            $.ajax({
+              method: "DELETE",
+              url: "/deleteProduto/"+id,
+            }).done(function(msg) {
+              window.location.href = "./listarProdutos";
+            })
+
+          }
+        );
+      }
+        function editar(id) {
+          window.location.href = './editarServidor/'+id;
+        }
+
+
+    </script>
+
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+          <div class="jumbotron nomes">
+            <table class="table table-striped">
+              <h2>Lista de Produtos Cadastrados</h2>
+              <button type="button" class="btn btn-success" name="button" onclick="novoProduto();">Novo Produto</button><br><br>
+              <% if(data.length >= 1){%>
+                <tr>
+                  <th>#</th><th>Status</th><th>Marca</th><th>Tipo</th><th>Descrição</th><th>Estoque Minimo</th><th>Estoque Máximo</th><th> </th><th> </th>
+                </tr>
+                <%
+              for (var i = 0; i < data.length; i++) { %>
+                <tr>
+                  <td><%= data[i].idProduto %></td>
+                  <td><%= data[i].statusProduto %></td>
+                  <td><%= data[i].marcaProduto %></td>
+                  <td><%= data[i].tipoProduto %></td>
+                  <td><%= data[i].descProduto %></td>
+                  <td><%= data[i].estoqueMin %></td>
+                  <td><%= data[i].estoqueMax %></td>
+                  <td><button type="button" class="btn btn-success" name="button" onclick="editar(<%=data[i].idProduto%>);">Editar</button></td>
+                  <td><button type="button" class="btn btn-danger" name="button" onclick="excluir(<%=data[i].idProduto%>);">Excluir</button></td>
+                </tr>
+              <%
+              }
+            }
+            else{
+          %>
+          <h3>Nenhum produto cadastrado!</h3>
+            <%}%>
+            </table>
+          </div>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>

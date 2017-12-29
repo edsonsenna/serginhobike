@@ -1,0 +1,65 @@
+2017-11-22 17:06:01: ===============================================================================
+2017-11-22 17:06:01: --- New PM2 Daemon started ----------------------------------------------------
+2017-11-22 17:06:01: Time                 : Wed Nov 22 2017 17:06:01 GMT-0200 (-02)
+2017-11-22 17:06:01: PM2 version          : 2.5.0
+2017-11-22 17:06:01: Node.js version      : 6.11.1
+2017-11-22 17:06:01: Current arch         : x64
+2017-11-22 17:06:01: PM2 home             : /home/serginhobikeshop/.pm2
+2017-11-22 17:06:01: PM2 PID file         : /home/serginhobikeshop/.pm2/pm2.pid
+2017-11-22 17:06:01: RPC socket file      : /home/serginhobikeshop/.pm2/rpc.sock
+2017-11-22 17:06:01: BUS socket file      : /home/serginhobikeshop/.pm2/pub.sock
+2017-11-22 17:06:01: Application log path : /home/serginhobikeshop/.pm2/logs
+2017-11-22 17:06:01: Process dump file    : /home/serginhobikeshop/.pm2/dump.pm2
+2017-11-22 17:06:01: Concurrent actions   : 2
+2017-11-22 17:06:01: SIGTERM timeout      : 1600
+2017-11-22 17:06:01: ===============================================================================
+2017-11-23 10:08:23: [Watch] Start watching 0
+2017-11-23 10:08:23: Starting execution sequence in -fork mode- for app name:server id:0
+2017-11-23 10:08:23: App name:server id:0 online
+2017-11-23 10:08:23: App [server] with id [0] and pid [60348], exited with code [1] via signal [SIGINT]
+2017-11-23 10:08:23: Starting execution sequence in -fork mode- for app name:server id:0
+2017-11-23 10:08:23: App name:server id:0 online
+2017-11-23 10:08:23: App [server] with id [0] and pid [60366], exited with code [1] via signal [SIGINT]
+2017-11-23 10:08:24: Starting execution sequence in -fork mode- for app name:server id:0
+2017-11-23 10:08:24: App name:server id:0 online
+2017-11-23 10:08:24: App [server] with id [0] and pid [60377], exited with code [1] via signal [SIGINT]
+2017-11-23 10:08:24: Starting execution sequence in -fork mode- for app name:server id:0
+2017-11-23 10:08:24: App name:server id:0 online
+2017-11-23 10:08:24: App [server] with id [0] and pid [60387], exited with code [1] via signal [SIGINT]
+2017-11-23 10:08:24: Starting execution sequence in -fork mode- for app name:server id:0
+2017-11-23 10:08:24: App name:server id:0 online
+2017-11-23 10:08:24: App [server] with id [0] and pid [60397], exited with code [1] via signal [SIGINT]
+2017-11-23 10:08:24: Starting execution sequence in -fork mode- for app name:server id:0
+2017-11-23 10:08:24: App name:server id:0 online
+2017-11-23 10:08:24: App [server] with id [0] and pid [60411], exited with code [1] via signal [SIGINT]
+2017-11-23 10:08:24: Starting execution sequence in -fork mode- for app name:server id:0
+2017-11-23 10:08:24: App name:server id:0 online
+2017-11-23 10:08:24: App [server] with id [0] and pid [60421], exited with code [1] via signal [SIGINT]
+2017-11-23 10:08:24: Starting execution sequence in -fork mode- for app name:server id:0
+2017-11-23 10:08:24: App name:server id:0 online
+2017-11-23 10:08:24: App [server] with id [0] and pid [60437], exited with code [1] via signal [SIGINT]
+2017-11-23 10:08:24: Starting execution sequence in -fork mode- for app name:server id:0
+2017-11-23 10:08:24: App name:server id:0 online
+2017-11-23 10:08:25: App [server] with id [0] and pid [60447], exited with code [1] via signal [SIGINT]
+2017-11-23 10:08:25: Starting execution sequence in -fork mode- for app name:server id:0
+2017-11-23 10:08:25: App name:server id:0 online
+2017-11-23 10:08:25: App [server] with id [0] and pid [60457], exited with code [1] via signal [SIGINT]
+2017-11-23 10:08:25: Starting execution sequence in -fork mode- for app name:server id:0
+2017-11-23 10:08:25: App name:server id:0 online
+2017-11-23 10:08:25: App [server] with id [0] and pid [60467], exited with code [1] via signal [SIGINT]
+2017-11-23 10:08:25: Starting execution sequence in -fork mode- for app name:server id:0
+2017-11-23 10:08:25: App name:server id:0 online
+2017-11-23 10:08:25: App [server] with id [0] and pid [60477], exited with code [1] via signal [SIGINT]
+2017-11-23 10:08:25: Starting execution sequence in -fork mode- for app name:server id:0
+2017-11-23 10:08:25: App name:server id:0 online
+2017-11-23 10:08:25: App [server] with id [0] and pid [60487], exited with code [1] via signal [SIGINT]
+2017-11-23 10:08:25: Starting execution sequence in -fork mode- for app name:server id:0
+2017-11-23 10:08:25: App name:server id:0 online
+2017-11-23 10:08:25: App [server] with id [0] and pid [60497], exited with code [1] via signal [SIGINT]
+2017-11-23 10:08:25: Starting execution sequence in -fork mode- for app name:server id:0
+2017-11-23 10:08:25: App name:server id:0 online
+2017-11-23 10:08:26: App [server] with id [0] and pid [60507], exited with code [1] via signal [SIGINT]
+2017-11-23 10:08:26: Starting execution sequence in -fork mode- for app name:server id:0
+2017-11-23 10:08:26: App name:server id:0 online
+2017-11-23 10:08:26: App [server] with id [0] and pid [60517], exited with code [1] via signal [SIGINT]
+2017-11-23 10:08:26: Script /home/serginhobikeshop/apps_nodejs/server.js had too many unstable restarts (16). Stopped. "errored"

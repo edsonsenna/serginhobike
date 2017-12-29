@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var max_fields      = 20; //maximum input boxes allowed
+        var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+        var add_button      = $(".add_field_button"); //Add button ID
+        var k = document.getElementById('op');
+        var strUser = 0;
+        var dados = new Array();
+        <% for(var i = 0; i < data.length; i++){%>
+          var produto = {idProduto:"<%=data[i].idProduto%>", descProduto:"<%=data[i].descProduto%>", marcaProduto:"<%=data[i].marcaProduto%>", statusProduto:"<%=data[i].statusProduto%>",  estoqueMax:"<%=data[i].estoqueMax%>",  estoqueMin:"<%=data[i].estoqueMin%>",  estoqueAtual:"<%=data[i].qtdProduto%>",  valorUnitario:"<%=data[i].valorUnitCompra%>"};
+          dados.push(produto);
+        <% } %>
+
+
+        console.log(dados);
+
+        var x = 0; //initlal text box count
+        /*
+        function addProduto(dados){
+          var idProduto = $("#op").prop('selectedIndex');
+          if(x < max_fields){ //max input box allowed
+              x++; //text box increment
+              $(wrapper).append('<div><p>Produto['+x+']</p>ID Produto: <input type="text" name="idProduto['+x+']" value="'+idProduto+'"/>Quantidade<input type="text" name="qtdProduto['+x+']"/>Valor Unitário<input type="text" name="valorUnit['+x+']" value="1"/><a href="#" class="remove_field btn btn-danger"> Remove</a></div>'); //add input box
+          }
+        }*/
+        $(add_button).click(function(e){ //on add input button click
+            e.preventDefault();
+            var id = parseInt($("#op").prop('selectedIndex'))+1;
+            if(x < max_fields){ //max input box allowed
+
+                x++; //text box increment
+                $(wrapper).append('<div><p>Produto['+x+']</p>ID Produto: <input type="text" name="idProduto['+x+']" value="'+dados[id].idProduto+'"/>Quantidade<input type="number" name="qtdProduto['+x+']" value="'+dados[id].estoqueMin+'" min="'+dados[id].estoqueMin+'" max="'+(dados[id].estoqueAtual-dados[id].estoqueMin)+'"/>Valor Unitário<input type="text" name="valorUnit['+x+']" value="1"/>Descrição<input type="text" name="descProduto['+x+']" value="'+dados[id].descProduto+'"/><br/><a href="#" class="remove_field btn btn-danger"> Remove</a></div>'); //add input box
+            }
+        });
+
+        $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+            e.preventDefault(); $(this).parent('div').remove(); x--;
+        });
+      });
+
+
+    </script>
+
+</head>
+<body class="container" >
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+
+          <%if(data.length >= 1){
+            for(var i = 0; i < data.length ; i++){
+            %>
+            <!--  <p><%=data[i].idProduto%></p><p><%=data[i].descProduto%></p> -->
+        <%
+        }
+      }%>
+            <h1>Cadastro de Compra</h1>
+            <p>Insira os dados da Compra.</p>
+            <form class="form" action="/novaCompra" method="post">
+              <div class="input_fields_wrap">
+                  Fornecedor: <input type="text" name="fornecedorCompra" value=""><br>
+                  <select class="form-control" id="op">
+                      <option value="">Selecione um produto</option>
+                      <% for(var j = 0 ; j < data.length;j++){%>
+                        <option value="<%=data[j].idProduto%>"><%= data[j].descProduto%></option>
+                      <%}%>
+                  </select>
+                  <button class="add_field_button btn btn-succes" >Adicionar Produtos</button>
+
+              </div>
+              <button type="submit" class="btn btn-success" name="button">Cadastrar</button>
+
+            </form>
+
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>
